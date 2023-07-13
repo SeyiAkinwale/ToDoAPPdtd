@@ -1,4 +1,15 @@
-html {
-  height: 100%;
-  width: 100%;
+body
+{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+h1
+{
+  test-align: center;
+  color: rgb(255,136,0);
+}
+.todo-container
+{
+  max-width: 400px;
 }
