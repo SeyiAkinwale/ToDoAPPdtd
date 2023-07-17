@@ -5,4 +5,8 @@ const todoList = document.getElementById('todo-list');
 console.log("What's going on");
 
 //Add task
-//github
+//Create new task items
+//Delete tasks
+//Cross out tasks
+//Event listeners
+//Examples of tasks
