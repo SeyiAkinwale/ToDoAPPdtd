@@ -1,12 +1,11 @@
-const todoInput = document.getElementById('todo-input');
-const addTaskButton = document.getElementById('add-task-btn');
-const todoList = document.getElementById('todo-list');
+const todoInput = document.getElementById('todo-input')
+const addTaskButton = document.getElementById('add-task-btn')
+const todoList = document.getElementById('todo-list')
 console.log("What's going on");
 
 //Add task
-const addTask = () =>
-  {
-    const taskText = todoInput.value.trim();
+const addTask = () => {
+   const taskText = todoInput.value.trim();
 
     if (taskText !=='')
     {
@@ -16,22 +15,21 @@ const addTask = () =>
     }
   }
 //Create new task items
-const createTaskItem = (taskText) =>
-  {
-    cosnt taskItem = document.createEleemnt('li');
+const createTaskItem = (taskText) => {
+    const taskItem = document.createElement('li');
     taskItem.className = 'todo-item';
 
-    const checkbox = document.createEleement('input');
+    const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('checkbox');
 
-    const taskTextSpan = document.createEleemnt('span');
+    const taskTextSpan = document.createElement('span');
     taskTextSpan.textContent = taskText;
 
-    const deletBtn = document.createELement('button');
+    const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
-    delete.classList.add('delete-btn');
-    deleteBtn.addEventListern('click', deleteTask);
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.addEventListener('click', deleteTask);
 
     taskItem.appendChild(checkbox);
     taskItem.appendChild(taskTextSpan);
@@ -41,25 +39,34 @@ const createTaskItem = (taskText) =>
   };
 
 //Delete tasks
-cosnt deleteTask = (event) =>
+const deleteTask = (event) =>
   {
     const taskItem = event.target.parentNode;
     todoList.removeChild(taskItem);
   }
 
 //Cross out tasks
-const toggleTask = () =>
-  {
+const toggleTask = (event) => {
     const taskItem = event.target.parentNode;
     taskItem.classList.toggle('completed');
   };
+
 //Event listeners
-addTaskButton.addEventListern('click', addTask);
-todoInput.addEventListern('keydown', function (event)
-{
+addTaskButton.addEventListener('click', addTask)
+todoInput.addEventListener('keydown', function (event))
+                           {
   if (event.key === 'Enter')
   {
     addTask();
   }
 }
+
+todoList.addEventListener('change', toggleTask)
 //Examples of tasks
+const initialTasks = ['Buy Groceries', 'Pay bills', 'Cut Grass'];
+
+initialTasks.forEach((task)) =>
+{
+  const taskItem = createTaskItem;
+  todoList.appendChild(taskItem);
+}
